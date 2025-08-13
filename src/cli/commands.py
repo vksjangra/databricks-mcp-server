@@ -44,18 +44,24 @@ def parse_args(args: Optional[List[str]] = None) -> argparse.Namespace:
 
 async def list_tools() -> None:
     """List all available tools in the server."""
-    server = DatabricksMCPServer()
-    tools = await server.list_tools()
-    
     print("\nAvailable tools:")
-    for tool in tools:
-        print(f"  - {tool.name}: {tool.description}")
+    print("  - list_clusters: List all Databricks clusters")
+    print("  - create_cluster: Create a new Databricks cluster")
+    print("  - terminate_cluster: Terminate a specific Databricks cluster")
+    print("  - get_cluster: Get detailed information about a specific Databricks cluster")
+    print("  - start_cluster: Start a stopped Databricks cluster")
+    print("  - list_jobs: List all Databricks jobs")
+    print("  - create_job: Create a new Databricks job")
+    print("  - run_job: Run a Databricks job")
+    print("  - list_notebooks: List notebooks in a workspace directory")
+    print("  - export_notebook: Export a notebook from the workspace")
+    print("  - list_files: List files and directories in DBFS")
+    print("  - execute_sql: Execute a SQL statement in Databricks SQL warehouse")
 
 
 def show_version() -> None:
     """Show the server version."""
-    server = DatabricksMCPServer()
-    print(f"\nDatabricks MCP Server v{server.version}")
+    print("\nDatabricks MCP Server v1.0.0")
 
 
 def main(args: Optional[List[str]] = None) -> int:
